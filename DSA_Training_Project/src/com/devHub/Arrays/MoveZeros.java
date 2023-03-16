@@ -1,4 +1,6 @@
 package com.devHub.Arrays;
+import java.util.Arrays;
+
 import com.devHub.Arrays.ReverseArray;
 public class MoveZeros {
 	
@@ -27,7 +29,6 @@ public class MoveZeros {
 		mz.moveZero(arr);
 		System.out.println("After Moving Zeroes to End Array State:-");
 		ReverseArray.printArray(arr);
-;
 	}
 
 }
