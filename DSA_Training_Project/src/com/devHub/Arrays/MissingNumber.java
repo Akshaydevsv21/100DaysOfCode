@@ -22,3 +22,10 @@ public class MissingNumber {
 	}
 
 }
+
+ 
+
+/*  Output
+ *----------------------------
+ * Missing Number in Array:- 8
+ */
