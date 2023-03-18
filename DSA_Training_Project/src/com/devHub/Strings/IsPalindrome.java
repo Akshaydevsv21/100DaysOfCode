@@ -33,3 +33,8 @@ public class IsPalindrome {
 	}
 
 }
+
+/*  Output
+ *----------------------------
+ * String Malayalam is a Palindrome
+ */
