@@ -28,6 +28,20 @@ public class SinglyLinkedList {
 		System.out.print("null");
 	}
 	
+	//Method defined to find the length of the Linked List
+	public int length() {
+		if(head==null) {
+			return 0;
+		}
+		
+		int count=0;
+		ListNode current =head;
+		while(current!=null) {
+			count++;
+			current=current.next;
+		}
+		return count;
+	}
 	public static void main(String[] args) {
 		
 		SinglyLinkedList sll=new SinglyLinkedList();
@@ -44,9 +58,8 @@ public class SinglyLinkedList {
 		
 		//5-->7-->4-->10-->23-->null
 		sll.display();
-		
-		
-
+		System.out.println();
+		System.out.println("Length of the SinglyLinked List: "+sll.length());
 	}
 
 }
@@ -55,4 +68,5 @@ public class SinglyLinkedList {
 /*  Output
  *----------------------------
  * 5-->7-->4-->10-->23-->null
+ * Length of the SinglyLinked List: 5
  */
