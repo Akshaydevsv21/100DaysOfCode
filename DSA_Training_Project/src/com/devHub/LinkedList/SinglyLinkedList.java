@@ -42,6 +42,13 @@ public class SinglyLinkedList {
 		}
 		return count;
 	}
+	
+	//Method to Insert new node at beginning of LinkedList
+	public void insertFirst(int value) {
+		ListNode lt=new ListNode(value);
+		lt.next=head;
+		head=lt;
+	}
 	public static void main(String[] args) {
 		
 		SinglyLinkedList sll=new SinglyLinkedList();
@@ -60,6 +67,10 @@ public class SinglyLinkedList {
 		sll.display();
 		System.out.println();
 		System.out.println("Length of the SinglyLinked List: "+sll.length());
+		
+		sll.insertFirst(9);
+		System.out.println("Linked List After Inserting New node at Beginning: ");
+		sll.display();
 	}
 
 }
@@ -69,4 +80,6 @@ public class SinglyLinkedList {
  *----------------------------
  * 5-->7-->4-->10-->23-->null
  * Length of the SinglyLinked List: 5
+ * Linked List After Inserting New node at Beginning: 
+ * 9-->5-->7-->4-->10-->23-->null
  */
