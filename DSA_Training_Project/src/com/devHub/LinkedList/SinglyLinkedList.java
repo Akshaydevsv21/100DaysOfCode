@@ -49,6 +49,21 @@ public class SinglyLinkedList {
 		lt.next=head;
 		head=lt;
 	}
+	
+	//Method to Insert new node at the end of LinkedList
+	public void insertLast(int value) {
+		ListNode lt=new ListNode(value);
+		if(head==null) {
+			head=lt;
+			return;
+		}
+		
+		ListNode current=head;
+		while(current.next!=null) {
+			current=current.next;
+		}
+		current.next=lt;
+	}
 	public static void main(String[] args) {
 		
 		SinglyLinkedList sll=new SinglyLinkedList();
@@ -71,6 +86,11 @@ public class SinglyLinkedList {
 		sll.insertFirst(9);
 		System.out.println("Linked List After Inserting New node at Beginning: ");
 		sll.display();
+		System.out.println();
+		
+		sll.insertLast(45);
+		System.out.println("Linked List After Inserting New node at the End: ");
+		sll.display();
 	}
 
 }
@@ -82,4 +102,6 @@ public class SinglyLinkedList {
  * Length of the SinglyLinked List: 5
  * Linked List After Inserting New node at Beginning: 
  * 9-->5-->7-->4-->10-->23-->null
+ * Linked List After Inserting New node at the End: 
+ * 9-->5-->7-->4-->10-->23-->45-->null
  */
