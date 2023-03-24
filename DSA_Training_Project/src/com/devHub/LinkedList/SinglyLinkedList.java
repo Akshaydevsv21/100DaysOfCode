@@ -65,7 +65,7 @@ public class SinglyLinkedList {
 		current.next=lt;
 	}
 	
-	//Method to Insert new node at the end of LinkedList
+	//Method to Insert new node at a Given position of LinkedList
 	public void insert(int data,int pos){
 		ListNode lt=new ListNode(data);
 		if(pos==1) {
