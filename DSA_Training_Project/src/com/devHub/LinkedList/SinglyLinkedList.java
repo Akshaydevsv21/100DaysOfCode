@@ -84,6 +84,19 @@ public class SinglyLinkedList {
 			previous.next=lt;
 		}
 	}
+	
+	//Method to Delete node at first position of LinkedList
+	public ListNode deleteFirst() {
+		if(head==null) {
+			return null;
+		}
+		
+		ListNode current=head;
+		head=head.next;
+		current.next=null;
+		return current;
+	}
+	
 	public static void main(String[] args) {
 		
 		SinglyLinkedList sll=new SinglyLinkedList();
@@ -117,6 +130,10 @@ public class SinglyLinkedList {
 		sll.insert(54,pos);
 		System.out.println("Linked List After Inserting New node at the "+pos+" position : ");
 		sll.display();
+		System.out.println();
+
+		System.out.println("Linked List After Deleting first node "+sll.deleteFirst().data+" in Linked List: ");
+		sll.display();
 		
 	}
 
@@ -133,4 +150,6 @@ public class SinglyLinkedList {
  * 9-->5-->7-->4-->10-->23-->45-->null
  * Linked List After Inserting New node at the 4 position : 
  * 9-->5-->7-->4-->54-->10-->23-->45-->null
+ * Linked List After Deleting first node 9 in Linked List: 
+ * 5-->7-->4-->54-->10-->23-->45-->null
  */
