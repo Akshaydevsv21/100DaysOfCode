@@ -97,6 +97,21 @@ public class SinglyLinkedList {
 		return current;
 	}
 	
+	//Method to Delete node at Last position of LinkedList
+	public ListNode deleteLast() {
+		if(head==null||head.next==null) {
+			return head;
+		}
+		ListNode current=head;
+		ListNode previous=null;
+		while(current.next!=null) {
+			previous=current;
+			current=current.next;
+		}
+		previous.next=null;
+		return current;
+	}
+	
 	public static void main(String[] args) {
 		
 		SinglyLinkedList sll=new SinglyLinkedList();
@@ -134,6 +149,11 @@ public class SinglyLinkedList {
 
 		System.out.println("Linked List After Deleting first node "+sll.deleteFirst().data+" in Linked List: ");
 		sll.display();
+		System.out.println();
+
+		System.out.println("Linked List After Deleting Last node "+sll.deleteLast().data+" in Linked List: ");
+		sll.display();
+		
 		
 	}
 
@@ -152,4 +172,6 @@ public class SinglyLinkedList {
  * 9-->5-->7-->4-->54-->10-->23-->45-->null
  * Linked List After Deleting first node 9 in Linked List: 
  * 5-->7-->4-->54-->10-->23-->45-->null
+ * Linked List After Deleting Last node 45 in Linked List: 
+ * 5-->7-->4-->54-->10-->23-->null
  */
