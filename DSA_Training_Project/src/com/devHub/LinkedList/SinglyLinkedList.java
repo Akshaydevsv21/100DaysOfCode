@@ -131,6 +131,23 @@ public class SinglyLinkedList {
 		return current;
 	}
 	
+	public boolean SearchLL(int key) {
+		if(head==null) {
+			System.out.println("Linked List is Empty");
+			return false;
+		}
+		ListNode current=head;
+		while(current!=null) {
+			if(current.data==key) {
+				System.out.println("Element "+key+" exists in SinglyLinkedList");
+				return true;
+			}
+			current=current.next;
+		}
+		System.out.println("Element "+key+" does not exist in SinglyLinkedList");
+		return false;
+	}
+	
 	public static void main(String[] args) {
 		
 		SinglyLinkedList sll=new SinglyLinkedList();
@@ -177,7 +194,9 @@ public class SinglyLinkedList {
 		pos=1;
 		System.out.println("Linked List After Deleting node "+sll.delete(pos).data+" at the "+pos+" position : ");
 		sll.display();
+		System.out.println();
 		
+		sll.SearchLL(46);
 		
 	}
 
