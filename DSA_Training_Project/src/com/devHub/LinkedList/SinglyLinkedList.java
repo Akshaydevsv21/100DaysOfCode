@@ -131,6 +131,7 @@ public class SinglyLinkedList {
 		return current;
 	}
 	
+	//Method to Search for an Element in LinkedList
 	public boolean SearchLL(int key) {
 		if(head==null) {
 			System.out.println("Linked List is Empty");
@@ -196,7 +197,7 @@ public class SinglyLinkedList {
 		sll.display();
 		System.out.println();
 		
-		sll.SearchLL(46);
+		sll.SearchLL(54);
 		
 	}
 
@@ -219,4 +220,5 @@ public class SinglyLinkedList {
  * 5-->7-->4-->54-->10-->23-->null
  * Linked List After Deleting node 5 at the 1 position : 
  * 7-->4-->54-->10-->23-->null
+ * Element 54 exists in SinglyLinkedList
  */
