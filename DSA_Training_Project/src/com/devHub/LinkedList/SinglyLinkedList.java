@@ -149,6 +149,27 @@ public class SinglyLinkedList {
 		return false;
 	}
 	
+	//Method to Reverse a LinkedList
+	public ListNode reverseList() {
+		if(head==null) {
+			return head;
+		}
+		
+		ListNode current=head;
+		ListNode previous=null;
+		ListNode next=null;
+		while(current!=null) {
+			next=current.next;
+			current.next=previous;
+			previous=current;
+			current=next;
+			//System.out.print(previous.data+"-->");
+			
+		}
+		head=previous;
+		return head;
+	}
+	
 	public static void main(String[] args) {
 		
 		SinglyLinkedList sll=new SinglyLinkedList();
@@ -198,6 +219,11 @@ public class SinglyLinkedList {
 		System.out.println();
 		
 		sll.SearchLL(54);
+		sll.display();
+		System.out.println();
+		sll.reverseList();
+		System.out.println("Reversed Linked List: ");
+		sll.display();
 		
 	}
 
@@ -221,4 +247,6 @@ public class SinglyLinkedList {
  * Linked List After Deleting node 5 at the 1 position : 
  * 7-->4-->54-->10-->23-->null
  * Element 54 exists in SinglyLinkedList
+ * Reversed Linked List: 
+ * 23-->10-->54-->4-->7-->null
  */
