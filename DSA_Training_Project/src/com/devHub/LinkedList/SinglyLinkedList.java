@@ -270,4 +270,5 @@ public class SinglyLinkedList {
  * Element 54 exists in SinglyLinkedList
  * Reversed Linked List: 
  * 23-->10-->54-->4-->7-->null
+ * Middle Node of Linked List: 54
  */
