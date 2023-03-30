@@ -170,6 +170,24 @@ public class SinglyLinkedList {
 		return head;
 	}
 	
+	public ListNode findMiddleNode() {
+		if(head==null) {
+			return null;
+		}
+		else if(head.next==null) {
+			return head;
+		}
+		
+		ListNode slowPtr=head;
+		ListNode fastPtr=head;
+		
+		while(fastPtr!=null && fastPtr.next!=null) {
+			slowPtr=slowPtr.next;
+			fastPtr=fastPtr.next.next;
+		}
+		return slowPtr;
+	}
+	
 	public static void main(String[] args) {
 		
 		SinglyLinkedList sll=new SinglyLinkedList();
@@ -224,6 +242,8 @@ public class SinglyLinkedList {
 		sll.reverseList();
 		System.out.println("Reversed Linked List: ");
 		sll.display();
+		System.out.println();
+		System.out.println("Middle Node of Linked List: "+sll.findMiddleNode().data);
 		
 	}
 
