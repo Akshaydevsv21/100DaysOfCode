@@ -189,6 +189,34 @@ public class SinglyLinkedList {
 		return slowPtr;
 	}
 	
+	//Method to find nth Node from end of a SinglyLinkedList
+	public ListNode getNthNodefromEnd(int n) {
+		if(head==null) {
+			return null;
+		}
+		
+		if(n<=0) {
+			throw new IllegalArgumentException("Invalid input "+n);
+		}
+		int count=0;
+		ListNode mainPtr=head;
+		ListNode refPtr=head;
+		while(count<n) {
+			if(refPtr==null) {
+				throw new IllegalArgumentException(n+" is bigger than Number of Nodes in list");
+			}
+			refPtr=refPtr.next;
+			count++;
+		}
+		
+		while(refPtr!=null) {
+		
+			refPtr=refPtr.next;
+			mainPtr=mainPtr.next;
+		}
+		return mainPtr;
+	}
+	
 	public static void main(String[] args) {
 		
 		SinglyLinkedList sll=new SinglyLinkedList();
@@ -245,6 +273,18 @@ public class SinglyLinkedList {
 		sll.display();
 		System.out.println();
 		System.out.println("Middle Node of Linked List: "+sll.findMiddleNode().data);
+		System.out.println();
+		
+		int n=3;
+		if(n==1) {
+			System.out.println(n+"st node from end of SinglyLinkedList: "+sll.getNthNodefromEnd(n).data);
+		}
+		else if(n==2 || n==3) {
+			System.out.println(n+"rd node from end of SinglyLinkedList: "+sll.getNthNodefromEnd(n).data);
+		}
+		else {
+			System.out.println(n+"th node from end of SinglyLinkedList: "+sll.getNthNodefromEnd(n).data);
+		}
 		
 	}
 
@@ -271,4 +311,5 @@ public class SinglyLinkedList {
  * Reversed Linked List: 
  * 23-->10-->54-->4-->7-->null
  * Middle Node of Linked List: 54
+ * 3rd node from end of SinglyLinkedList: 54
  */
