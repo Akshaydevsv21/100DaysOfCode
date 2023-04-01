@@ -217,6 +217,23 @@ public class SinglyLinkedList {
 		return mainPtr;
 	}
 	
+	//Method to remove Duplicates from a  SinglyLinkedList
+	public void removeDuplicates() {
+		if(head==null) {
+			return;
+		}
+		
+		ListNode current=head;
+		while(current!=null && current.next!=null) {
+			if(current.data==current.next.data) {
+				current.next=current.next.next;
+			}
+			else {
+				current=current.next;
+			}
+		}
+	}
+	
 	public static void main(String[] args) {
 		
 		SinglyLinkedList sll=new SinglyLinkedList();
@@ -224,12 +241,14 @@ public class SinglyLinkedList {
 		ListNode second=new ListNode(7);
 		ListNode third=new ListNode(4);
 		ListNode fourth=new ListNode(10);
-		ListNode fifth=new ListNode(23);
+		ListNode fifth=new ListNode(10);
+		ListNode sixth=new ListNode(23);
 		
 		sll.head.next=second;
 		second.next=third;
 		third.next=fourth;
 		fourth.next=fifth;
+		fifth.next=sixth;
 		
 		//5-->7-->4-->10-->23-->null
 		sll.display();
@@ -285,6 +304,11 @@ public class SinglyLinkedList {
 		else {
 			System.out.println(n+"th node from end of SinglyLinkedList: "+sll.getNthNodefromEnd(n).data);
 		}
+		System.out.println();
+		System.out.println("LinkedList After Removing Duplicates: ");
+		sll.removeDuplicates();
+		sll.display();
+		
 		
 	}
 
@@ -312,4 +336,8 @@ public class SinglyLinkedList {
  * 23-->10-->54-->4-->7-->null
  * Middle Node of Linked List: 54
  * 3rd node from end of SinglyLinkedList: 54
+ * LinkedList before Removing Duplicates: 
+ * 23-->10-->10-->54-->4-->7-->null
+ * LinkedList After Removing Duplicates: 
+ * 23-->10-->54-->4-->7-->null
  */
