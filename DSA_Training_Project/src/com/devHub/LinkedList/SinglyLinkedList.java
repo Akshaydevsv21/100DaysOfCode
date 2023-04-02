@@ -234,15 +234,35 @@ public class SinglyLinkedList {
 		}
 	}
 	
+	//Method to insert new node in a Sorted SinglyLinkedList
+	public ListNode insertinSortedLinkedList(int value) {
+		ListNode newNode=new ListNode(value);
+		
+		if(head==null) {
+			return newNode;
+		}
+		
+		ListNode current=head;
+		ListNode previous=null;
+		
+		while(current!=null && current.data<newNode.data) {
+			previous=current;
+			current=current.next;
+		}
+		newNode.next=current;
+		previous.next=newNode;
+		return head;
+	}
+	
 	public static void main(String[] args) {
 		
 		SinglyLinkedList sll=new SinglyLinkedList();
 		sll.head=new ListNode(5);
-		ListNode second=new ListNode(7);
-		ListNode third=new ListNode(4);
-		ListNode fourth=new ListNode(10);
-		ListNode fifth=new ListNode(10);
-		ListNode sixth=new ListNode(23);
+		ListNode second=new ListNode(8);
+		ListNode third=new ListNode(9);
+		ListNode fourth=new ListNode(11);
+		ListNode fifth=new ListNode(11);
+		ListNode sixth=new ListNode(22);
 		
 		sll.head.next=second;
 		second.next=third;
@@ -266,7 +286,7 @@ public class SinglyLinkedList {
 		System.out.println();
 		
 		int pos=4;
-		sll.insert(54,pos);
+		sll.insert(10,pos);
 		System.out.println("Linked List After Inserting New node at the "+pos+" position : ");
 		sll.display();
 		System.out.println();
@@ -287,10 +307,10 @@ public class SinglyLinkedList {
 		sll.SearchLL(54);
 		sll.display();
 		System.out.println();
-		sll.reverseList();
-		System.out.println("Reversed Linked List: ");
-		sll.display();
-		System.out.println();
+		//sll.reverseList();
+		//System.out.println("Reversed Linked List: ");
+		//sll.display();
+		//System.out.println();
 		System.out.println("Middle Node of Linked List: "+sll.findMiddleNode().data);
 		System.out.println();
 		
@@ -308,7 +328,11 @@ public class SinglyLinkedList {
 		System.out.println("LinkedList After Removing Duplicates: ");
 		sll.removeDuplicates();
 		sll.display();
-		
+		System.out.println();
+		int val=17;
+		System.out.println("LinkedList After Inserting Node "+val+" in Sorted LinkedList: ");
+		sll.insertinSortedLinkedList(17);
+		sll.display();
 		
 	}
 
@@ -340,4 +364,6 @@ public class SinglyLinkedList {
  * 23-->10-->10-->54-->4-->7-->null
  * LinkedList After Removing Duplicates: 
  * 23-->10-->54-->4-->7-->null
+ * LinkedList After Inserting Node 17 in Sorted LinkedList: 
+ * 8-->9-->10-->11-->17-->22-->null
  */
