@@ -254,6 +254,25 @@ public class SinglyLinkedList {
 		return head;
 	}
 	
+	//Method to delete given node as key in SinglyLinkedList
+	public void deleteNodebyKey(int key) {
+		ListNode current=head;
+		ListNode temp=null;
+		
+		if(current!=null && current.data==key) {
+			head=current.next;
+			return;
+		}
+		
+		while(current!=null && current.data!=key) {
+			temp=current;
+			current=current.next;
+		}
+		
+		if(current==null) return;
+		temp.next=current.next;
+	}
+	
 	public static void main(String[] args) {
 		
 		SinglyLinkedList sll=new SinglyLinkedList();
@@ -333,6 +352,11 @@ public class SinglyLinkedList {
 		System.out.println("LinkedList After Inserting Node "+val+" in Sorted LinkedList: ");
 		sll.insertinSortedLinkedList(17);
 		sll.display();
+		System.out.println();
+		int key=11;
+		System.out.println("LinkedList After Deleting Node "+key+" from LinkedList");
+		sll.deleteNodebyKey(key);
+		sll.display();
 		
 	}
 
@@ -366,4 +390,6 @@ public class SinglyLinkedList {
  * 23-->10-->54-->4-->7-->null
  * LinkedList After Inserting Node 17 in Sorted LinkedList: 
  * 8-->9-->10-->11-->17-->22-->null
+ * LinkedList After Deleting Node 11 from LinkedList
+ * 8-->9-->10-->17-->22-->null
  */
