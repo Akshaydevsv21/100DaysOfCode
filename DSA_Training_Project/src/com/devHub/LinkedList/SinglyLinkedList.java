@@ -273,6 +273,39 @@ public class SinglyLinkedList {
 		temp.next=current.next;
 	}
 	
+	//Method to create a Loop in SinglyLinkedList
+	public void createLoopLinkedList() {
+		ListNode first=new ListNode(1);
+		ListNode second=new ListNode(2);
+		ListNode third=new ListNode(3);
+		ListNode fourth=new ListNode(4);
+		ListNode fifth=new ListNode(5);
+		ListNode sixth=new ListNode(6);
+		
+		head=first;
+		first.next=second;
+		second.next=third;
+		third.next=fourth;
+		fourth.next=fifth;
+		fifth.next=sixth;
+		sixth.next=third;
+	}
+	
+	//Method to check for a Loop in SinglyLinkedList
+	public boolean containsLoop() {
+		ListNode slowPtr=head;
+		ListNode fastPtr=head;
+		
+		while(fastPtr!=null && fastPtr.next!=null) {
+			fastPtr=fastPtr.next.next;
+			slowPtr=slowPtr.next;
+			if(fastPtr==slowPtr) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	public static void main(String[] args) {
 		
 		SinglyLinkedList sll=new SinglyLinkedList();
@@ -357,6 +390,16 @@ public class SinglyLinkedList {
 		System.out.println("LinkedList After Deleting Node "+key+" from LinkedList");
 		sll.deleteNodebyKey(key);
 		sll.display();
+		System.out.println();
+		
+		SinglyLinkedList sll2=new SinglyLinkedList();
+		sll2.createLoopLinkedList();
+		if(sll2.containsLoop()) {
+			System.out.println("LinkedList Contains a Loop");
+		}
+		else {
+			System.out.println("LinkedList Don't Have a Loop");
+		}
 		
 	}
 
@@ -392,4 +435,5 @@ public class SinglyLinkedList {
  * 8-->9-->10-->11-->17-->22-->null
  * LinkedList After Deleting Node 11 from LinkedList
  * 8-->9-->10-->17-->22-->null
+ * LinkedList Contains a Loop
  */
