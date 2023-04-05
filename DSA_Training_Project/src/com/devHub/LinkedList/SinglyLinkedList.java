@@ -306,6 +306,7 @@ public class SinglyLinkedList {
 		return false;
 	}
 	
+	//Method to find Start Node in a loop in SinglyLinkedList
 	public ListNode startNodeinLoop() {
 		ListNode slowPtr=head;
 		ListNode fastPtr=head;
@@ -460,4 +461,5 @@ public class SinglyLinkedList {
  * LinkedList After Deleting Node 11 from LinkedList
  * 8-->9-->10-->17-->22-->null
  * LinkedList Contains a Loop
+ * Starting Node of Loop: 3
  */
