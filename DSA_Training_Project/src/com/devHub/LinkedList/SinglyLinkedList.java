@@ -306,6 +306,29 @@ public class SinglyLinkedList {
 		return false;
 	}
 	
+	public ListNode startNodeinLoop() {
+		ListNode slowPtr=head;
+		ListNode fastPtr=head;
+		
+		while(fastPtr!=null && fastPtr.next!=null) {
+			fastPtr=fastPtr.next.next;
+			slowPtr=slowPtr.next;
+			if(fastPtr==slowPtr) {
+				return getStartingNode(slowPtr);
+			}
+		}
+		return null;
+	}
+	
+	private ListNode getStartingNode(ListNode slowPtr) {
+		ListNode temp=head;
+		while(slowPtr!=temp) {
+			temp=temp.next;
+			slowPtr=slowPtr.next;
+		}
+		return temp;
+	}
+
 	public static void main(String[] args) {
 		
 		SinglyLinkedList sll=new SinglyLinkedList();
@@ -396,6 +419,7 @@ public class SinglyLinkedList {
 		sll2.createLoopLinkedList();
 		if(sll2.containsLoop()) {
 			System.out.println("LinkedList Contains a Loop");
+			System.out.println("Starting Node of Loop: "+sll2.startNodeinLoop().data);
 		}
 		else {
 			System.out.println("LinkedList Don't Have a Loop");
