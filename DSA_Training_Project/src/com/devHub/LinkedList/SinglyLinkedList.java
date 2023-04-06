@@ -330,6 +330,31 @@ public class SinglyLinkedList {
 		return temp;
 	}
 
+	//Method to remove a loop in SinglyLinkedList
+	public void removeLoop() {
+		ListNode slowPtr=head;
+		ListNode fastPtr=head;
+		
+		while(fastPtr!=null && fastPtr.next!=null) {
+			fastPtr=fastPtr.next.next;
+			slowPtr=slowPtr.next;
+			if(fastPtr==slowPtr) {
+				removeLoop(slowPtr);
+				return;
+			}
+		}
+	}
+	
+	private void removeLoop(ListNode slowPtr) {
+		ListNode temp=head;
+		while(slowPtr.next!=temp.next) {
+			temp=temp.next;
+			slowPtr=slowPtr.next;
+		}
+		slowPtr.next=null;
+		
+	}
+
 	public static void main(String[] args) {
 		
 		SinglyLinkedList sll=new SinglyLinkedList();
@@ -426,6 +451,10 @@ public class SinglyLinkedList {
 			System.out.println("LinkedList Don't Have a Loop");
 		}
 		
+		System.out.println("SinglyLinkedList after removing Loop");
+		sll2.removeLoop();
+		sll2.display();
+		
 	}
 
 }
@@ -462,4 +491,6 @@ public class SinglyLinkedList {
  * 8-->9-->10-->17-->22-->null
  * LinkedList Contains a Loop
  * Starting Node of Loop: 3
+ * SinglyLinkedList after removing Loop
+ * 1-->2-->3-->4-->5-->6-->null
  */
