@@ -1,6 +1,8 @@
-package com.devHub.LinkedList;
+/* Program to Implement Merging of 2 Sorted SinglyLinkedLists
+ *  Dated - 8 April 2023
+* Author - Akshay Dev S V   */ 
 
-//import com.devHub.LinkedList.SinglyLinkedList;
+package com.devHub.LinkedList;
 
 public class Merge2SortedList {
 	
@@ -31,9 +33,24 @@ public class Merge2SortedList {
 		ListNode tail=dummy;
 		
 		while(a!=null && b!=null) {
-			
+			if(a.data<b.data) {
+				tail.next=a;
+				a=a.next;
+			}
+			else {
+				tail.next=b;
+				b=b.next;
+			}
+			tail=tail.next;
 		}
-		return dummy;
+		if(a==null) {
+			tail.next=b;
+		}
+		else {
+			tail.next=a;
+		}
+		head=dummy.next;
+		return head;
 	}
 
 	public static void main(String[] args) {
@@ -66,7 +83,28 @@ public class Merge2SortedList {
 		fourth1.next=fifth1;
 		fifth1.next=sixth1;
 		
-		
+		System.out.println("First Linked List");
+		list.display();
+		System.out.println();
+		System.out.println("Second Linked List");
+		list1.display();
+		System.out.println();
+		System.out.println("LinkedList after Merging: ");
+		list.mergeList(list.head, list1.head);
+		list.display();
 	}
 
 }
+
+
+
+
+/*  Output
+ *----------------------------
+ *First Linked List
+ * 5-->9-->17-->19-->27-->30-->null
+ * Second Linked List
+ * 2-->6-->8-->15-->24-->33-->null
+ * LinkedList after Merging: 
+ * 2-->5-->6-->8-->9-->15-->17-->19-->24-->27-->30-->33-->null
+*/
