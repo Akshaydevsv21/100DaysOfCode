@@ -15,6 +15,20 @@ public class DoublyLinkedList {
 			this.data=data;
 		}
 	}
+	
+	public DoublyLinkedList() {
+		this.head=null;
+		this.tail=null;
+		this.length=0;
+	}
+	
+	public boolean isEmpty() {
+		return length==0;
+	}
+	
+	public int length() {
+		return length;
+	}
 
 	public static void main(String[] args) {
 
