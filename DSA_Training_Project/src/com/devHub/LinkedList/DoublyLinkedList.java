@@ -29,6 +29,32 @@ public class DoublyLinkedList {
 	public int length() {
 		return length;
 	}
+	
+	public void displayForward() {
+		if(head==null) {
+			return;
+		}
+		
+		ListNode current=head;
+		while(current!=null) {
+			System.out.print(current.data+"-->");
+			current=current.next;
+		}
+		System.out.println("null");
+	}
+	
+	public void displayBackward() {
+		if(tail==null) {
+			return;
+		}
+		
+		ListNode current=tail;
+		while(current!=null) {
+			System.out.print(current.data+"-->");
+			current=current.previous;
+		}
+		System.out.println("null");
+	}
 
 	public static void main(String[] args) {
 
