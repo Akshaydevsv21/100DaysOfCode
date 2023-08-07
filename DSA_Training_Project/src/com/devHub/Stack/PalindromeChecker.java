@@ -1,4 +1,4 @@
-/* Program to Reverse a String 
+/* Program to check if a String is a Palindrome 
  *  Author - Akshay Dev S V
  *  Date- 7th August 2023
  * */
