@@ -17,6 +17,15 @@ public class SLL {
 			this.next=null;
 		}
 	}
+	
+	public void display() {
+		ListNode current=head;
+		while(current!=null) {
+			System.out.print(current.data+"-->");
+			current=current.next;
+		}
+		System.out.print("null");
+	}
 
 	public static void main(String[] args) {
 		
@@ -30,6 +39,8 @@ public class SLL {
 		sl.head.next=second;
 		second.next=third;
 		third.next=fourth;
+		
+		sl.display();
 
 	}
 
