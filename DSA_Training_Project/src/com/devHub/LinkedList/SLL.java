@@ -29,6 +29,15 @@ public class SLL {
 		System.out.print("null");
 		System.out.println();
 		System.out.println("Length of the Singly Linked List: "+len);
+		//System.out.println("Anjitha N Namboothiri loves Akshay Dev");
+	}
+	
+	public ListNode insertFirst(int value) {
+		ListNode newNode=new ListNode(value);
+		newNode.next=head;
+		head=newNode;
+		return newNode;
+		
 	}
 
 	public static void main(String[] args) {
@@ -46,6 +55,7 @@ public class SLL {
 		third.next=fourth;
 		fourth.next=fifth;
 		
+		sl.insertFirst(5);
 		
 		sl.display();
 
