@@ -39,6 +39,16 @@ public class SLL {
 		return newNode;
 		
 	}
+	
+	public ListNode insertLast(int value) {
+		ListNode newNode=new ListNode(value);
+		ListNode current=head;
+		while(current.next!=null) {
+			current=current.next;
+		}
+		current.next=newNode;
+		return head;
+	}
 
 	public static void main(String[] args) {
 		
@@ -56,6 +66,7 @@ public class SLL {
 		fourth.next=fifth;
 		
 		sl.insertFirst(5);
+		sl.insertLast(60);
 		
 		sl.display();
 
