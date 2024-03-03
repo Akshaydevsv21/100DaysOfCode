@@ -49,6 +49,26 @@ public class SLL {
 		current.next=newNode;
 		return head;
 	}
+	
+	public ListNode insertAtGivenIndex(int value, int pos) {
+		ListNode newNode=new ListNode(value);
+		if(pos==1) {
+			newNode.next=head;
+			head=newNode;
+		}
+		else {
+			ListNode previous=head;
+			int count=1;
+			while(count<pos-1) {
+				previous=previous.next;
+				count++;
+			}
+			ListNode current=previous.next;
+			newNode.next=current;
+			previous.next=newNode;
+		}
+		return head;
+	}
 
 	public static void main(String[] args) {
 		
@@ -67,6 +87,7 @@ public class SLL {
 		
 		sl.insertFirst(5);
 		sl.insertLast(60);
+		sl.insertAtGivenIndex(70, 8);
 		
 		sl.display();
 
