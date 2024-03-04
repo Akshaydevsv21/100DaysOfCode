@@ -70,6 +70,17 @@ public class SLL {
 		return head;
 	}
 
+	public ListNode deleteFirst() {
+		if(head==null) {
+			return null;
+		}
+		
+		ListNode temp=head;
+		head=head.next;
+		temp.next=null;
+		return temp;
+	}
+	
 	public static void main(String[] args) {
 		
 		SLL sl=new SLL();
@@ -88,6 +99,7 @@ public class SLL {
 		sl.insertFirst(5);
 		sl.insertLast(60);
 		sl.insertAtGivenIndex(70, 8);
+		sl.deleteFirst();
 		
 		sl.display();
 
