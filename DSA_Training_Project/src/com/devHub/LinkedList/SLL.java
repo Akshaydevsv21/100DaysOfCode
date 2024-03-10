@@ -113,6 +113,20 @@ public class SLL {
 		}
 	}
 	
+	public boolean findElement(int value) {
+		ListNode current=head;
+		while(current!=null) {
+			if(current.data==value) {
+				System.out.println("The element "+value+" exist in the LinkedList");
+				return true;
+			}
+		current=current.next;
+		}
+		System.out.println("The element "+value+" doesn't exist in the LinkedList");
+		return false;
+		
+	}
+	
 	public static void main(String[] args) {
 		
 		SLL sl=new SLL();
@@ -135,6 +149,7 @@ public class SLL {
 		sl.deleteLast();
 		sl.deletefromAnyPosition(6);
 		sl.display();
+		sl.findElement(60);
 
 	}
 
