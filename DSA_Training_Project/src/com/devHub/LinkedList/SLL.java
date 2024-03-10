@@ -97,6 +97,22 @@ public class SLL {
 		
 	}
 	
+	public void deletefromAnyPosition(int pos) {
+		if(pos==1) {
+			head=head.next;
+		}
+		else {
+			ListNode previous=head;
+			int count=1;
+			while(count<pos-1) {
+				previous=previous.next;
+				count++;
+			}
+			ListNode temp=previous.next;
+			previous.next=temp.next;
+		}
+	}
+	
 	public static void main(String[] args) {
 		
 		SLL sl=new SLL();
@@ -117,7 +133,7 @@ public class SLL {
 		sl.insertAtGivenIndex(70, 8);
 		sl.deleteFirst();
 		sl.deleteLast();
-		
+		sl.deletefromAnyPosition(6);
 		sl.display();
 
 	}
