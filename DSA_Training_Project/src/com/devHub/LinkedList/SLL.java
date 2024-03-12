@@ -127,6 +127,17 @@ public class SLL {
 		
 	}
 	
+	public ListNode findMiddleElement() {
+		ListNode slowPtr=head;
+		ListNode fastPtr=head;
+		
+		while(fastPtr!=null && fastPtr.next!=null) {
+			slowPtr=slowPtr.next;
+			fastPtr=fastPtr.next.next;
+		}
+		return slowPtr;
+	}
+	
 	public static void main(String[] args) {
 		
 		SLL sl=new SLL();
@@ -150,6 +161,7 @@ public class SLL {
 		sl.deletefromAnyPosition(6);
 		sl.display();
 		sl.findElement(60);
+		System.out.println("The middle element of the LinkedList: "+sl.findMiddleElement().data);
 
 	}
 
