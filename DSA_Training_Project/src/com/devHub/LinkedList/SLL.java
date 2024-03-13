@@ -138,6 +138,22 @@ public class SLL {
 		return slowPtr;
 	}
 	
+	public ListNode findnthElementfromLast(int n) {
+		ListNode mainPtr=head;
+		ListNode refPtr=head;
+		
+		int count=0;
+		while(count<n) {
+			refPtr=refPtr.next;
+			count++;
+		}
+		while(refPtr!=null) {
+			refPtr=refPtr.next;
+			mainPtr=mainPtr.next;
+		}
+		return mainPtr;
+	}
+	
 	public static void main(String[] args) {
 		
 		SLL sl=new SLL();
@@ -162,7 +178,8 @@ public class SLL {
 		sl.display();
 		sl.findElement(60);
 		System.out.println("The middle element of the LinkedList: "+sl.findMiddleElement().data);
-
+		int n=3;
+		System.out.println("The "+n+" element from last in LinkedList : "+sl.findnthElementfromLast(n).data);
 	}
 
 }
