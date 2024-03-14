@@ -154,6 +154,23 @@ public class SLL {
 		return mainPtr;
 	}
 	
+	//Methods to remove Duplicates from SinglyLinkedList
+	
+	public ListNode removeDuplicatesfromSLL() {
+		
+		ListNode current=head;
+		while(current!=null && current.next!=null) {
+			if(current.data==current.next.data) {
+				current.next=current.next.next;
+			}
+			else {
+				current=current.next;
+			}
+		}
+		return head;
+		
+	}
+	
 	public static void main(String[] args) {
 		
 		SLL sl=new SLL();
@@ -161,25 +178,31 @@ public class SLL {
 		sl.head=new ListNode(10);
 		ListNode second=new ListNode(20);
 		ListNode third=new ListNode(30);
-		ListNode fourth=new ListNode(40);
-		ListNode fifth=new ListNode(50);
+		ListNode fourth=new ListNode(30);
+		ListNode fifth=new ListNode(40);
+		ListNode sixth=new ListNode(50);
+		ListNode seventh=new ListNode(50);
 		
 		sl.head.next=second;
 		second.next=third;
 		third.next=fourth;
 		fourth.next=fifth;
+		fifth.next=sixth;
+		sixth.next=seventh;
 		
 		sl.insertFirst(5);
 		sl.insertLast(60);
-		sl.insertAtGivenIndex(70, 8);
-		sl.deleteFirst();
-		sl.deleteLast();
-		sl.deletefromAnyPosition(6);
+		sl.insertAtGivenIndex(70, 10);
+		//sl.deleteFirst();
+		//sl.deleteLast();
+		//sl.deletefromAnyPosition(6);
 		sl.display();
 		sl.findElement(60);
 		System.out.println("The middle element of the LinkedList: "+sl.findMiddleElement().data);
 		int n=3;
 		System.out.println("The "+n+" element from last in LinkedList : "+sl.findnthElementfromLast(n).data);
+		sl.removeDuplicatesfromSLL();
+		sl.display();
 	}
 
 }
