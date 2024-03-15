@@ -171,6 +171,20 @@ public class SLL {
 		
 	}
 	
+	//Method to insert a new node in a Sorted LinkedList
+	
+	public ListNode insertnewNodeinSortedSLL(ListNode newNode) {
+		ListNode current=head;
+		ListNode temp=null;
+		while(current!=null && current.data<newNode.data) {
+			temp=current;
+			current=current.next;
+		}
+		newNode.next=current;
+		temp.next=newNode;
+		return head;
+	}
+	
 	public static void main(String[] args) {
 		
 		SLL sl=new SLL();
@@ -195,13 +209,15 @@ public class SLL {
 		sl.insertAtGivenIndex(70, 10);
 		//sl.deleteFirst();
 		//sl.deleteLast();
-		//sl.deletefromAnyPosition(6);
+		sl.deletefromAnyPosition(6);
 		sl.display();
 		sl.findElement(60);
 		System.out.println("The middle element of the LinkedList: "+sl.findMiddleElement().data);
 		int n=3;
 		System.out.println("The "+n+" element from last in LinkedList : "+sl.findnthElementfromLast(n).data);
 		sl.removeDuplicatesfromSLL();
+		sl.display();
+		sl.insertnewNodeinSortedSLL(new ListNode(40));
 		sl.display();
 	}
 
