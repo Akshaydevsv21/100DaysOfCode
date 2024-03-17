@@ -205,6 +205,22 @@ public class SLL {
 		temp.next=current.next;
 	}
 	
+	//Method to detect a loop within a SinglyLinkedList
+	
+	public Boolean isLoopExistsinSLL() {
+		ListNode slowPtr=head;
+		ListNode fastPtr=head;
+		
+		while(fastPtr!=null && fastPtr.next!=null) {
+			slowPtr=slowPtr.next;
+			fastPtr=fastPtr.next.next;
+			if(slowPtr==fastPtr) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	public static void main(String[] args) {
 		
 		SLL sl=new SLL();
@@ -222,14 +238,14 @@ public class SLL {
 		third.next=fourth;
 		fourth.next=fifth;
 		fifth.next=sixth;
-		sixth.next=seventh;
+		//sixth.next=seventh;
 		
-		sl.insertFirst(5);
-		sl.insertLast(60);
-		sl.insertAtGivenIndex(70, 10);
+		/*sl.insertFirst(5);
+		//sl.insertLast(60);
+		//sl.insertAtGivenIndex(70, 10);
 		//sl.deleteFirst();
 		//sl.deleteLast();
-		sl.deletefromAnyPosition(6);
+		//sl.deletefromAnyPosition(6);
 		sl.display();
 		sl.findElement(60);
 		System.out.println("The middle element of the LinkedList: "+sl.findMiddleElement().data);
@@ -237,10 +253,16 @@ public class SLL {
 		System.out.println("The "+n+" element from last in LinkedList : "+sl.findnthElementfromLast(n).data);
 		sl.removeDuplicatesfromSLL();
 		sl.display();
-		sl.insertnewNodeinSortedSLL(new ListNode(40));
-		sl.display();
-		sl.deleteNode(60);
-		sl.display();
+		//sl.insertnewNodeinSortedSLL(new ListNode(40));
+		//sl.display();
+		//sl.deleteNode(60);
+		//sl.display();*/
+		if(sl.isLoopExistsinSLL()) {
+			System.out.println("Loop Exists in given SinglyLinkedList");
+		}
+		else {
+			System.out.println("Loop NOT Exists in given SinglyLinkedList");
+		}
 	}
 
 }
