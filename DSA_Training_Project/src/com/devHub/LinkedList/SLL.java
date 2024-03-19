@@ -221,6 +221,30 @@ public class SLL {
 		return false;
 	}
 	
+	public ListNode IfLoopExistsfindStartingNode() {
+		ListNode slowPtr=head;
+		ListNode fastPtr=head;
+		
+		while(fastPtr!=null && fastPtr.next!=null) {
+			slowPtr=slowPtr.next;
+			fastPtr=fastPtr.next.next;
+			if(slowPtr==fastPtr) {
+				return getStartingNode(slowPtr);
+			}
+		}
+		return null;
+	}
+	
+	
+	private ListNode getStartingNode(ListNode slowPtr) {
+		ListNode temp=head;
+		while(slowPtr!=temp) {
+			temp=temp.next;
+			slowPtr=slowPtr.next;
+		}
+		return temp;
+	}
+
 	public static void main(String[] args) {
 		
 		SLL sl=new SLL();
@@ -228,17 +252,17 @@ public class SLL {
 		sl.head=new ListNode(10);
 		ListNode second=new ListNode(20);
 		ListNode third=new ListNode(30);
-		ListNode fourth=new ListNode(30);
-		ListNode fifth=new ListNode(40);
-		ListNode sixth=new ListNode(50);
-		ListNode seventh=new ListNode(50);
+		ListNode fourth=new ListNode(40);
+		ListNode fifth=new ListNode(50);
+		ListNode sixth=new ListNode(60);
+		ListNode seventh=new ListNode(70);
 		
 		sl.head.next=second;
 		second.next=third;
 		third.next=fourth;
 		fourth.next=fifth;
 		fifth.next=sixth;
-		//sixth.next=seventh;
+		sixth.next=third;
 		
 		/*sl.insertFirst(5);
 		//sl.insertLast(60);
@@ -263,6 +287,8 @@ public class SLL {
 		else {
 			System.out.println("Loop NOT Exists in given SinglyLinkedList");
 		}
+		
+		System.out.println("Starting Node of Loop in SLL: "+sl.IfLoopExistsfindStartingNode().data);
 	}
 
 }
